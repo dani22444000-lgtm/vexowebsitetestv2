@@ -1,0 +1,20 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "profiles": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": false } },
+    "publicProfiles": { ".read": true, ".write": false },
+    "playerIdIndex": { ".read": false, ".write": false },
+    "wallets": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": false } },
+    "transactions": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": false } },
+    "matches": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": false } },
+    "playerStats": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": false } },
+    "gameState": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": false } },
+    "rooms": { "$code": { ".read": "auth != null && data.child('players').child(auth.uid).exists()", ".write": false } },
+    "userRooms": { "$uid": { ".read": "auth != null && auth.uid === $uid", ".write": false } },
+    "paymentOrders": { "$order": { ".read": "auth != null && data.child('uid').val() === auth.uid", ".write": false } },
+    "siteSettings": { "public": { ".read": true, ".write": false } },
+    "withdrawalRequests": { ".read": "auth != null && (auth.token.god === true || (query.orderByChild === 'uid' && query.equalTo === auth.uid))", ".write": false, ".indexOn": ["uid"] },
+    "adminAudit": { ".read": "auth != null && auth.token.god === true", ".write": false }
+  }
+}

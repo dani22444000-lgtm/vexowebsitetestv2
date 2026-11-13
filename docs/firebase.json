@@ -1,0 +1,1 @@
+{"database":{"rules":"firebase-database.rules.json"},"functions":{"source":"functions"},"hosting":{"public":".","ignore":["firebase.json","**/.*","**/node_modules/**","functions/**"]}}
