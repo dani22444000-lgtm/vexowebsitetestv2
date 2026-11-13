@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VEXO Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-protected="true">
+  <header class="top">
+    <nav class="wrap nav">
+      <a class="brand" href="index.html">V<b>EXO</b></a>
+      <button id="logout" class="btn">Sign out</button>
+    </nav>
+  </header>
+
+  <main class="wrap section">
+    <!-- Bank Card -->
+    <section class="bank-card">
+      <div class="card-top">
+        <span class="card-brand">VEXO BANK</span>
+        <span class="card-chip">💳</span>
+      </div>
+      <div class="card-number" data-player-id>•••• •••• ••••</div>
+      <div class="card-bottom">
+        <span class="card-holder" data-name>Player</span>
+        <span class="card-expiry">VEXO COIN</span>
+      </div>
+    </section>
+
+    <!-- Coins Row -->
+    <section class="coins-row">
+      <div class="coin-card">
+        <span class="coin-icon">🟡</span>
+        <div><small>VEXO</small><div class="stat" data-wallet="gold">0</div></div>
+      </div>
+      <div class="coin-card">
+        <span class="coin-icon">⚪</span>
+        <div><small>Silver</small><div class="stat" data-wallet="silver">0</div></div>
+      </div>
+      <div class="coin-card">
+        <span class="coin-icon">🟤</span>
+        <div><small>Bronze</small><div class="stat" data-wallet="bronze">0</div></div>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+      <a class="btn primary" href="store.html">💰 Buy VEXO</a>
+      <a class="btn" href="exchange.html">💱 Exchange</a>
+    </section>
+
+    <!-- Recent Transactions -->
+    <section class="card section">
+      <h2>Recent Transactions</h2>
+      <div id="transactions" class="muted">Loading…</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-brand">Built by Vexo Company</p>
+      <p class="footer-credit">Developed by Kingali</p>
+      <div class="footer-links">
+        <a href="https://t.me/Vexo_ticket_bot" target="_blank" rel="noopener noreferrer">🎟️ Support Ticket Bot</a>
+        <a href="https://t.me/vexo_company" target="_blank" rel="noopener noreferrer">📢 Vexo Company Channel</a>
+        <a href="https://t.me/vexo_company_farsi" target="_blank" rel="noopener noreferrer">🇮🇷 Persian Channel</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="active">🏠<span>Dashboard</span></a>
+    <a href="game.html">⛏️<span>Mine</span></a>
+    <a href="levels.html">📊<span>Levels</span></a>
+    <a href="plans.html">💎<span>Plans</span></a>
+    <a href="exchange.html">💱<span>Exchange</span></a>
+    <a href="profile.html">👤<span>Profile</span></a>
+  </nav>
+
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

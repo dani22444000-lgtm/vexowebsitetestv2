@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VEXO پروفایل</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-protected="true">
+  <header class="top">
+    <nav class="wrap nav">
+      <a class="brand" href="index.html">V<b>EXO</b></a>
+      <button id="logout" class="btn">خروج</button>
+    </nav>
+  </header>
+
+  <main class="wrap section">
+    <div class="eyebrow">👤 VEXO PROFILE</div>
+    <h1>پروفایل <span class="grad">شما</span></h1>
+
+    <section class="card">
+      <h2>اطلاعات حساب</h2>
+      <form id="profileForm">
+        <label class="field">نام نمایشی<input id="profileName" maxlength="24" required></label>
+        <p class="muted">ایمیل: <span id="profileEmail"></span></p>
+        <p class="muted">شناسه ۱۰ رقمی: <strong id="profileId">در حال بارگذاری…</strong></p>
+        <button class="btn primary">ذخیره پروفایل</button>
+        <p id="profileMessage" class="notice" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="card section">
+      <h2>تنظیمات</h2>
+      <p><a class="pink" href="withdraw.html">💰 کیف پول و برداشت</a></p>
+      <p><a class="pink" href="plans.html">💎 مدیریت اشتراک</a></p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html">🏠<span>داشبورد</span></a>
+    <a href="game.html">⛏️<span>ماین</span></a>
+    <a href="levels.html">📊<span>لول</span></a>
+    <a href="plans.html">💎<span>پلن‌ها</span></a>
+    <a href="profile.html" class="active">👤<span>پروفایل</span></a>
+  </nav>
+
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/profile.js"></script>
+</body>
+</html>

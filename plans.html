@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VEXO ??????</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <style>
+    .plan-hydrogen { border-color: #8884; }
+    .plan-helium { border-color: #4af4; background: linear-gradient(145deg, #0a1a2e, #102a4a); }
+    .plan-uranium { border-color: #fa44; background: linear-gradient(145deg, #2a1a0a, #4a2a10); }
+    .plan-uranium .pill { background: #5c3a1a; }
+    .plan-helium .pill { background: #1a3a5c; }
+  </style>
+</head>
+<body data-protected="true">
+  <header class="top">
+    <nav class="wrap nav">
+      <a class="brand" href="index.html">V<b>EXO</b></a>
+      <button id="logout" class="btn">????</button>
+    </nav>
+  </header>
+
+  <main class="wrap section">
+    <div class="eyebrow">?? VEXO PLANS</div>
+    <h1>??????? <span class="grad">??????</span></h1>
+    <p class="muted">??? ?????? ? ???? ????.</p>
+
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+      <article class="card plan-hydrogen">
+        <span class="pill">???????</span>
+        <h2>?? ????</h2>
+        <p class="muted">??? ???? ?? ???</p>
+        <button class="btn primary" data-plan="hydrogen">????</button>
+      </article>
+      <article class="card plan-helium">
+        <span class="pill">?????</span>
+        <h2>?? ????</h2>
+        <p class="muted">??? ???? ?? ???</p>
+        <button class="btn primary" data-plan="helium">????</button>
+      </article>
+      <article class="card plan-uranium">
+        <span class="pill">????????</span>
+        <h2>??? ????</h2>
+        <p class="muted">???? ???????</p>
+        <button class="btn primary" data-plan="uranium">????</button>
+      </article>
+    </div>
+    <div id="ton-connect-plans" style="margin:20px 0;"></div>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html">??<span>???????</span></a>
+    <a href="game.html">??<span>????</span></a>
+    <a href="levels.html">??<span>???</span></a>
+    <a href="plans.html" class="active">??<span>??????</span></a>
+    <a href="profile.html">??<span>???????</span></a>
+  </nav>
+
+  <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/plans.js"></script>
+</body>
+</html>

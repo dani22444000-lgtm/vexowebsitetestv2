@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VEXO Mine</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body data-protected="true">
+  <header class="top">
+    <nav class="wrap nav">
+      <a class="brand" href="index.html">V<b>EXO</b></a>
+      <button id="logout" class="btn">Sign out</button>
+    </nav>
+  </header>
+
+  <main class="wrap section">
+    <div class="eyebrow">⛏️ VEXO MINE</div>
+    <h1>Rock · Paper · <span class="grad">Scissors</span></h1>
+
+    <section class="arena">
+      <h2>Bot Match</h2>
+      <p class="muted">Win: +10 Silver +5 Bronze | Loss: -2 Silver -1 Bronze | Draw: no change</p>
+      <div class="grid">
+        <div class="card"><small>Wins</small><div class="stat" id="wins">0</div></div>
+        <div class="card"><small>Rounds</small><div class="stat" id="rounds">0</div></div>
+        <div class="card"><small>Losses</small><div class="stat" id="losses">0</div></div>
+      </div>
+      <div class="duel">
+        <div><div class="muted">You</div><div class="hand" id="you">❔</div></div>
+        <strong class="pink">VS</strong>
+        <div><div class="muted">Bot</div><div class="hand" id="bot">🤖</div></div>
+      </div>
+      <div class="choices">
+        <button class="choice" data-move="rock"><span>✊</span>Rock</button>
+        <button class="choice" data-move="paper"><span>✋</span>Paper</button>
+        <button class="choice" data-move="scissors"><span>✌️</span>Scissors</button>
+      </div>
+      <p class="notice" id="result" aria-live="polite">Start playing!</p>
+    </section>
+
+    <section class="card section">
+      <h2>Multiplayer</h2>
+      <p class="muted">Coming soon… 🚧</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-brand">Built by Vexo Company</p>
+      <p class="footer-credit">Developed by Kingali</p>
+      <div class="footer-links">
+        <a href="https://t.me/Vexo_ticket_bot" target="_blank" rel="noopener noreferrer">🎟️ Support Ticket Bot</a>
+        <a href="https://t.me/vexo_company" target="_blank" rel="noopener noreferrer">📢 Vexo Company Channel</a>
+        <a href="https://t.me/vexo_company_farsi" target="_blank" rel="noopener noreferrer">🇮🇷 Persian Channel</a>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html">🏠<span>Dashboard</span></a>
+    <a href="game.html" class="active">⛏️<span>Mine</span></a>
+    <a href="levels.html">📊<span>Levels</span></a>
+    <a href="plans.html">💎<span>Plans</span></a>
+    <a href="exchange.html">💱<span>Exchange</span></a>
+    <a href="profile.html">👤<span>Profile</span></a>
+  </nav>
+
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/game.js"></script>
+</body>
+</html>

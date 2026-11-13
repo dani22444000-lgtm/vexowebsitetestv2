@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VEXO Exchange</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <style>
+    .walletbox{border:1px solid #39345b;background:linear-gradient(135deg,#17152c,#101b2c);border-radius:18px;padding:22px;margin:18px 0}
+    .walletaddr{direction:ltr;word-break:break-all;color:#9fe8ff;font-size:13px}
+    .status{padding:6px 10px;border-radius:99px;background:#332d4a;font-size:12px}
+    .req{padding:13px;border:1px solid #34304c;border-radius:12px;margin:9px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+    .fine{font-size:12px;color:#aaa;line-height:1.9}
+    .yellow{color:#ffe08a}
+  </style>
+</head>
+<body data-protected="true">
+  <header class="top">
+    <nav class="wrap nav">
+      <a class="brand" href="index.html">V<b>EXO</b></a>
+      <button id="logout" class="btn">Sign out</button>
+    </nav>
+  </header>
+
+  <main class="wrap section">
+    <div class="eyebrow">VEXO EXCHANGE</div>
+    <h1>Buy, Sell & <span class="grad">Withdraw</span></h1>
+    <p class="muted">Exchange your VEXO for TON or withdraw to your TON wallet. All requests are reviewed by an administrator.</p>
+
+    <!-- نمایش محدودیت‌ها -->
+    <section class="card">
+      <h2>Your Limits</h2>
+      <p class="muted">Current plan: <strong id="currentPlan">Free</strong></p>
+      <p class="muted">Monthly buy limit: <strong id="buyLimit">—</strong> VEXO</p>
+      <p class="muted">Monthly sell limit: <strong id="sellLimit">—</strong> VEXO</p>
+      <p class="muted">Used this month: <strong id="usedThisMonth">0</strong> VEXO</p>
+    </section>
+
+    <!-- فرم خرید و فروش -->
+    <section class="card section">
+      <h2>Buy / Sell VEXO</h2>
+      <form id="exchangeForm">
+        <label class="field">Action
+          <select id="action">
+            <option value="buy">Buy VEXO</option>
+            <option value="sell">Sell VEXO</option>
+          </select>
+        </label>
+        <label class="field">Amount (VEXO)
+          <input id="exchangeAmount" type="number" min="1" step="1" required placeholder="e.g. 10">
+        </label>
+        <label class="field">TON Wallet Address (for sell)
+          <input id="exchangeDestination" type="text" placeholder="UQ... or EQ..." maxlength="128">
+        </label>
+        <button class="btn primary" type="submit" id="submitExchange">Submit Exchange Request</button>
+      </form>
+      <p id="exchangeMessage" class="notice" aria-live="polite"></p>
+    </section>
+
+    <!-- بخش برداشت (ادغام شده از withdraw.html) -->
+    <section class="card section">
+      <h2>Withdraw to TON Wallet</h2>
+      <p class="muted">Withdraw your VEXO to your TON wallet. A 5% fee applies on VEXO withdrawals.</p>
+
+      <!-- اتصال ولت -->
+      <div class="walletbox">
+        <h3 style="margin-top:0;">TON Wallet Connection</h3>
+        <p id="walletState" class="muted">Connect your TON wallet to continue.</p>
+        <div id="ton-connect" style="margin:15px 0;"></div>
+        <p id="walletAddress" class="walletaddr"></p>
+        <p class="fine">Only your public wallet address is read. Never enter your recovery phrase or private key on this website.</p>
+      </div>
+
+      <!-- فرم برداشت -->
+      <form id="withdrawForm" style="display:grid;gap:12px;max-width:500px;">
+        <label class="field">Asset
+          <select id="withdrawCurrency">
+            <option value="gold">VEXO</option>
+            <option value="silver">Silver</option>
+            <option value="bronze">Bronze</option>
+          </select>
+        </label>
+        <label class="field">Amount
+          <input id="withdrawAmount" type="number" min="1" step="1" required placeholder="e.g. 100">
+        </label>
+        <p class="fine yellow" id="feePreview">Fee: 0 VEXO · You receive: 0 VEXO</p>
+        <button class="btn primary" type="submit" id="submitWithdraw">Submit Withdrawal</button>
+      </form>
+      <p id="withdrawMessage" class="notice" aria-live="polite"></p>
+      <p class="fine yellow">Important: submitting a request does not transfer TON automatically. An administrator must verify and record any real transfer.</p>
+    </section>
+
+    <!-- تاریخچه درخواست‌های Exchange -->
+    <section class="card section">
+      <h2>My Exchange Requests</h2>
+      <div id="exchangeList" class="muted">Loading…</div>
+    </section>
+
+    <!-- تاریخچه برداشت‌ها -->
+    <section class="card section">
+      <h2>My Withdrawal Requests</h2>
+      <button id="refreshWithdrawals" class="btn">Refresh</button>
+      <div id="withdrawHistory" class="muted">Loading…</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-brand">Built by Vexo Company</p>
+      <p class="footer-credit">Developed by Kingali</p>
+      <div class="footer-links">
+        <a href="https://t.me/Vexo_ticket_bot" target="_blank" rel="noopener noreferrer">🎟️ Support Ticket Bot</a>
+        <a href="https://t.me/vexo_company" target="_blank" rel="noopener noreferrer">📢 Vexo Company Channel</a>
+        <a href="https://t.me/vexo_company_farsi" target="_blank" rel="noopener noreferrer">🇮🇷 Persian Channel</a>
+      </div>
+    </div>
+  </footer>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html">🏠<span>Dashboard</span></a>
+    <a href="game.html">⛏️<span>Mine</span></a>
+    <a href="levels.html">📊<span>Levels</span></a>
+    <a href="plans.html">💎<span>Plans</span></a>
+    <a href="exchange.html" class="active">💱<span>Exchange</span></a>
+    <a href="profile.html">👤<span>Profile</span></a>
+  </nav>
+
+  <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/exchange.js"></script>
+</body>
+</html>
