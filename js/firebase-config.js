@@ -2,7 +2,7 @@
 // The web apiKey identifies this Firebase project; it is not an Admin/private key.
 // Protect data with Firebase Authentication and Realtime Database Security Rules.
 export const firebaseConfig = {
-  apiKey: "AIzaSyASL8CFLPlYhUJy0Zmd63Q43Pdsz8Hf29o",
+  apiKey: "AIzaSyASlC8FLPlYhUJy0Zmd63Q43Pdsz8Hf29o",
   authDomain: "vexo-v2.firebaseapp.com",
   databaseURL: "https://vexo-v2-default-rtdb.firebaseio.com",
   projectId: "vexo-v2",
