@@ -1,0 +1,41 @@
+name: Deploy Firebase Functions
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'functions/**'
+      - 'firebase-database.rules.json'
+      - 'firebase.json'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools@15.22.1
+
+      - name: Install dependencies
+        run: |
+          cd functions
+          npm install
+          cd ..
+
+      - name: Create Service Account File
+        run: |
+          cat << 'EOF' > service-account.json
+          ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          EOF
+
+      - name: Deploy to Firebase
+        run: firebase deploy --only functions,database
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/service-account.json
